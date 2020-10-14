@@ -4,9 +4,6 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: GUIButtonDefault
-  - first:
-      213: 21300002
     second: GUIButtonDefault_0
   externalObjects: {}
   serializedVersion: 11
@@ -96,7 +93,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 1f0dae20dea448e4b9298cc71002c82d
-      internalID: 21300002
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
