@@ -6,7 +6,7 @@ public class Creak : MonoBehaviour
 {
     private AudioSource source;
     public List<AudioClip> audioClips = new List<AudioClip>();
-    private bool waiting = false;
+    private bool waiting = true;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class Creak : MonoBehaviour
             source.pitch = randomPitch;
 
             float randomTrigger = Random.Range(0f, 1f);
-            if (randomTrigger > 0.2f && (other.CompareTag("Creak") || other.CompareTag("Player")))
+            if (randomTrigger > 0.2f && (other.CompareTag("Player")))
             {
                 source.PlayOneShot(audioClips[randomclip]);
                 Debug.Log("Creak Script");
@@ -39,7 +39,7 @@ public class Creak : MonoBehaviour
 
     private IEnumerator PauseSound()
     {
-        float randTime = Random.Range(1f, 5f);
+        float randTime = Random.Range(5f, 10f);
         yield return new WaitForSeconds(randTime);
         waiting = false;
     }

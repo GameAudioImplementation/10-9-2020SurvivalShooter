@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/_CompletedAssets/Scenes/Complete-Game.unity
+    guid: 874e24e631d7345b0a29cc297bedb405
   m_configObjects: {}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 422006}
   - component: {fileID: 13770500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hellephant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 461430}
   - component: {fileID: 19897060}
   - component: {fileID: 19949986}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HitParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4906,7 +4906,7 @@ GameObject:
   - component: {fileID: 423716}
   - component: {fileID: 19869728}
   - component: {fileID: 19991516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DeathParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9699,7 +9699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478878}
   - component: {fileID: 10840590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9792,16 +9792,16 @@ GameObject:
   - component: {fileID: 418926}
   - component: {fileID: 2794758016455962612}
   - component: {fileID: 6446390428890769104}
+  - component: {fileID: 11415352}
   - component: {fileID: 9583922}
   - component: {fileID: 5499234}
   - component: {fileID: 8279214}
   - component: {fileID: 19546556}
   - component: {fileID: 13536644}
   - component: {fileID: 13644992}
-  - component: {fileID: 11415352}
   m_Layer: 9
   m_Name: Hellephant
-  m_TagString: Creak
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9860,6 +9860,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
   - {fileID: 8300000, guid: ee5221ae8b41d46b08e060e85c26f3de, type: 3}
   - {fileID: 8300000, guid: fa9060db69f014c7687cc6d909ea545c, type: 3}
+--- !u!114 &11415352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc28e8f7dbbe7494a8d67b6f5f3636bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
+  attackDamage: 30
 --- !u!95 &9583922
 Animator:
   serializedVersion: 3
@@ -9891,7 +9905,7 @@ Rigidbody:
   m_Drag: Infinity
   m_AngularDrag: Infinity
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
@@ -9952,7 +9966,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10041,20 +10055,6 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.2, z: 0}
---- !u!114 &11415352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc28e8f7dbbe7494a8d67b6f5f3636bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenAttacks: 0.5
-  attackDamage: 30
 --- !u!1 &184534
 GameObject:
   m_ObjectHideFlags: 0
@@ -10064,7 +10064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 481682}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trunk1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

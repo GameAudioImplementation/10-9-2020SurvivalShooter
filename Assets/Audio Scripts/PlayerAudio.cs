@@ -10,7 +10,8 @@ public class PlayerAudio : MonoBehaviour
     public AudioMixerSnapshot enemyNearSnapshot;
     public AudioMixerSnapshot enemyFarSnapshot;
     private AudioSource source;
-    public AudioClip creak;
+    public AudioClip heartBeatClip;
+ 
 
     private void Start()
     {
@@ -19,42 +20,83 @@ public class PlayerAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 10f, transform.forward, 0f, enemyAudioMask);
+        enemyNear = false;
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5f, transform.forward, 0f, enemyAudioMask);
         if (hits.Length > 0)
         {
-            enemyNear = true;
-        }
-        else
-        {
-            enemyNear = false;
-        }
-
-        if (enemyNear)
-        {
-            if (!AudioManager.manager.layerMusic)
-            {
-                 
-            }
-        }
-      
-         /* AudioManager.cs takes care of this now
-         if (hits.Length > 0)
-            {
             if (!enemyNear)
-                {
-                    enemyNearSnapshot.TransitionTo(3f);
-                    enemyNear = true;
-                }
+            {
+                source.PlayOneShot(heartBeatClip);
+                //source.loop = true;
+                enemyNearSnapshot.TransitionTo(0.5f);
+                enemyNear = true;
             }
+        }
+       else
+       {
+           if (enemyNear)
+            {
+                enemyFarSnapshot.TransitionTo(0.5f);
+                enemyNear = false;
+            }
+        }
+          /*  private void OnDrawGizmos()
+            {
+                Gizmos.DrawWireSphere(transform.position, 5f);
+            }*/
+    }
+}
+
+        /*foreach (var hit in hits)
+        {
+           if (hit.collider.CompareTag("enemy"))
+            {
+                enemyNear = true;
+            }
+            
+        }
+        
+        if (enemyNear && !source.isPlaying)
+        {
+           source.loop = true;
+            source.PlayOneShot(heartBeatClip);
+            enemyNearSnapshot.TransitionTo(3f);
+        }
         else
         {
-            if (enemyNear)
-                {
-                    enemyFarSnapshot.TransitionTo(3f);
-                    enemyNear = false;
-                }
-        } */
-    }
+            enemyFarSnapshot.TransitionTo(3f);
+        }
+        //if (hits.Length > 0)
+        */
+
+
+
+
+        /* AudioManager.cs takes care of this now
+        if (hits.Length > 0)
+           {
+           if (!enemyNear)
+               {
+                   enemyNearSnapshot.TransitionTo(3f);
+                   enemyNear = true;
+               }
+           }
+       else
+       {
+           if (enemyNear)
+               {
+                   enemyFarSnapshot.TransitionTo(3f);
+                   enemyNear = false;
+               }
+                if (enemyNear)
+       {
+           if (!AudioManager.manager.layerMusic)
+           {
+
+           }
+       }
+       } */
+    
     /*
     private void OnTriggerEnter(Collider other)
     {
@@ -69,5 +111,3 @@ public class PlayerAudio : MonoBehaviour
         }
     }
     */
-
-}
