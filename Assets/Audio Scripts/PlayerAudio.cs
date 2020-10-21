@@ -28,7 +28,7 @@ public class PlayerAudio : MonoBehaviour
             {
                 source.PlayOneShot(heartBeatClip);
                 //source.loop = true;
-                enemyNearSnapshot.TransitionTo(0.5f);
+                //enemyNearSnapshot.TransitionTo(3f);
                 enemyNear = true;
             }
         }
@@ -36,7 +36,7 @@ public class PlayerAudio : MonoBehaviour
        {
            if (enemyNear)
             {
-                enemyFarSnapshot.TransitionTo(0.5f);
+                //enemyFarSnapshot.TransitionTo(3f);
                 enemyNear = false;
             }
         }

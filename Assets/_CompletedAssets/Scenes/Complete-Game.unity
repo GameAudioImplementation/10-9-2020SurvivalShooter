@@ -4503,7 +4503,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6698634443409337526, guid: 8434b04884c414ac6b468e10945685e6,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1a77bd8c3daeb4492942aab6dafa88f5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4712,18 +4712,18 @@ PrefabInstance:
     - target: {fileID: 5913259903299674421, guid: 4e5a0d387dc27394b81600988ad0216f,
         type: 3}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5913259903299674421, guid: 4e5a0d387dc27394b81600988ad0216f,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5913259903299674421, guid: 4e5a0d387dc27394b81600988ad0216f,
         type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 24300000, guid: 8434b04884c414ac6b468e10945685e6,
+      objectReference: {fileID: -127625824392270251, guid: 8434b04884c414ac6b468e10945685e6,
         type: 2}
     - target: {fileID: 5913259903299674421, guid: 4e5a0d387dc27394b81600988ad0216f,
         type: 3}
@@ -4735,10 +4735,20 @@ PrefabInstance:
       propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5913259903299674421, guid: 4e5a0d387dc27394b81600988ad0216f,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913259903299674421, guid: 4e5a0d387dc27394b81600988ad0216f,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8260873868757932153, guid: 4e5a0d387dc27394b81600988ad0216f,
         type: 3}
       propertyPath: enemyAudioMask.m_Bits
-      value: 0
+      value: 8192
       objectReference: {fileID: 0}
     - target: {fileID: 8260873868757932153, guid: 4e5a0d387dc27394b81600988ad0216f,
         type: 3}

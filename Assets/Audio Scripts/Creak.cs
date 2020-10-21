@@ -6,7 +6,7 @@ public class Creak : MonoBehaviour
 {
     private AudioSource source;
     public List<AudioClip> audioClips = new List<AudioClip>();
-    private bool waiting = true;
+    private bool waiting = false;
 
     // Start is called before the first frame update
     void Start()
