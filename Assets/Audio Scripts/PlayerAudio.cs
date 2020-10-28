@@ -26,7 +26,11 @@ public class PlayerAudio : MonoBehaviour
         {
             if (!enemyNear)
             {
-                source.PlayOneShot(heartBeatClip);
+               if (!source.isPlaying){
+                   source.PlayOneShot(heartBeatClip);
+               }
+                
+        
                 //source.loop = true;
                 //enemyNearSnapshot.TransitionTo(3f);
                 enemyNear = true;

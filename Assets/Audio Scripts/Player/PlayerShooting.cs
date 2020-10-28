@@ -21,8 +21,11 @@ namespace CompleteProject
         Light gunLight;                                 // Reference to the light component.
 		public Light faceLight;								// Duh
         float effectsDisplayTime = 0.2f;                // The proportion of the timeBetweenBullets that the effects will display for.
-        public List<AudioClip> audioClips = new List<AudioClip>();
+        public List<AudioClip> shotClips = new List<AudioClip>();
+         public List<AudioClip> shellClips = new List<AudioClip>();
+         bool waiting = false;
 
+        AudioClip shellClip; 
         void Awake ()
         {
             // Create a layer mask for the Shootable layer.
@@ -78,10 +81,11 @@ namespace CompleteProject
         void Shoot ()
         {
             // Reset the timer.
+            //int shot = 0;
             timer = 0f;
 
             // Play the gun shot audioclip.
-            int randomclip = Random.Range(0, audioClips.Count);
+            int randomclip = Random.Range(0, shotClips.Count);
             Debug.Log("OnTriggerEnter" + Time.time);
             float randomVol = Random.Range(0.3f, 0.8f);
             aSource.volume = randomVol;
@@ -89,7 +93,23 @@ namespace CompleteProject
             float randomPitch = Random.Range(1, 3);
             aSource.pitch = randomPitch;
 
-            aSource.PlayOneShot(audioClips[randomclip]);
+           /* if(shot < 4){ //how to check specific clip?
+                shot++;
+                aSource.PlayOneShot(shotClips[randomclip]);
+                if(shot == 3 && !aSource.isPlaying){
+                    aSource.PlayOneShot(shellClips[randomclip]);
+                    aSource.clip = shellClips[randomclip];
+                    Invoke("PauseSound", 3f); //need to pause animation
+                    //aSource.PlayDelayed(1f);
+                }
+            }*/
+
+            for(int shot = 0; shot <= 2; shot++)
+            {
+                Invoke("SingleShot", shot);
+            }
+            Invoke("PauseSound", 3f);
+            // ignore mouse press until shells finished playing
 
             // Enable the lights.
             gunLight.enabled = true;
@@ -130,5 +150,22 @@ namespace CompleteProject
                 gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
             }
         }
+         void PauseSound(){
+            gunParticles.Stop();
+            int randomclip = Random.Range(0, shotClips.Count);
+            aSource.PlayOneShot(shellClips[randomclip]);
+        }
+        void SingleShot(){
+            gunParticles.Stop();
+            aSource.PlayOneShot(shotClips[0]);
+            gunParticles.Play();
+        }
     }
+      /*  private IEnumerator PauseSound()
+        {
+            float randTime = Random.Range(0f, 1f);
+            yield return new WaitForSeconds(randTime);
+            waiting = false;
+        }*/
+       
 }

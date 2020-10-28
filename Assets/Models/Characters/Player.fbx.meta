@@ -502,8 +502,8 @@ ModelImporter:
       name: Move
       takeName: Take 001
       internalID: 0
-      firstFrame: 1
-      lastFrame: 25
+      firstFrame: 0
+      lastFrame: 164
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -523,14 +523,35 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.13216783
-        functionName: NewEvent
+      - time: 0
+        functionName: PlaySound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0
+      - time: 0.071341425
+        functionName: PlaySound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.13216783
+        functionName: PlaySound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.23981485
+        functionName: PlaySound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
         functionName: NewEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1060,7 +1081,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    meshOptimizationFlags: -1
+    meshOptimizationFlags: 0
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
