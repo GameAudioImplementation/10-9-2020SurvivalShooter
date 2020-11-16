@@ -19,6 +19,6 @@ public class FootSteps : MonoBehaviour
         
     }
     void Footstep(){
-        source.PlayOneShot(footstep);
+        source.PlayOneShot(footstep, 0.5f);
     }
 }

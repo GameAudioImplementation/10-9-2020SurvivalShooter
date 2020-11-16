@@ -75,8 +75,9 @@ namespace CompleteProject
             if(currentHealth <= 0 && !isDead)
             {
                 // ... it should die.
-                Death ();
+               // Death ();
             }
+            
         }
 
 

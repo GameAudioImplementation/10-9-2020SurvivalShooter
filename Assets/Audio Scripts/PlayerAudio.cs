@@ -12,7 +12,18 @@ public class PlayerAudio : MonoBehaviour
     private AudioSource source;
     public AudioClip heartBeatClip;
  
-
+  
+    //public ParticleSystemEmitterVelocityMode; 
+    public AudioMixer mixer;
+    public float maxDistance;
+    //public AnimationCurve GetCustomCurve(CustomRolloff type);
+    public float heartBeatLowPass = 0.5f;
+    public void LowPass(float lowpass){
+        mixer.SetFloat("lowPass", lowpass);
+    }
+    //public void ClearFloat(float lowpass){
+    //    mixer.ClearFloat("lowPass");
+    //}
     private void Start()
     {
         source = GetComponent<AudioSource>();
@@ -20,10 +31,27 @@ public class PlayerAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        LowPass(heartBeatLowPass);
         enemyNear = false;
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, 5f, transform.forward, 0f, enemyAudioMask);
+        
         if (hits.Length > 0)
         {
+            Debug.Log("hit length:" + hits.Length + " " + hits[0].collider.gameObject.name);
+            foreach(RaycastHit hit in hits){
+                 Debug.Log("Ray: " + hit.collider.gameObject.name + " " + hit.distance);
+            }
+          
+            float distance = Vector3.Distance(hits[0].transform.position, transform.position);
+            Debug.Log("distance:" + distance);
+            if(distance > 1.5f){
+                float lowPassCutoff = -56 * distance + 290;
+                LowPass(lowPassCutoff);
+            }
+            else{
+                LowPass(22000);
+            }
+        
             if (!enemyNear)
             {
                if (!source.isPlaying){

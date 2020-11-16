@@ -10081,7 +10081,7 @@ GameObject:
   - component: {fileID: 3586866984654218143}
   - component: {fileID: 4579232563907499788}
   m_Layer: 13
-  m_Name: Cube
+  m_Name: ZombearAudioRayCastCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

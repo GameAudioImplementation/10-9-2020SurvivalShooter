@@ -5209,7 +5209,8 @@ MonoBehaviour:
   timeBetweenBullets: 0.12
   range: 100
   faceLight: {fileID: 10800002}
-  audioClips: []
+  shotClips: []
+  shellClips: []
 --- !u!108 &10800000
 Light:
   m_ObjectHideFlags: 0
@@ -5281,11 +5282,11 @@ GameObject:
   m_Component:
   - component: {fileID: 400006}
   - component: {fileID: 9500000}
+  - component: {fileID: 11400002}
   - component: {fileID: 11400004}
   - component: {fileID: 8260873868757932153}
   - component: {fileID: 5913259903299674421}
   - component: {fileID: 5400000}
-  - component: {fileID: 11400002}
   - component: {fileID: 13600000}
   m_Layer: 0
   m_Name: Player
@@ -5330,6 +5331,19 @@ Animator:
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2268f9c7df8764aa2e92dbf55b5ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5369,6 +5383,9 @@ MonoBehaviour:
     type: 2}
   enemyFarSnapshot: {fileID: 24500003, guid: 8434b04884c414ac6b468e10945685e6, type: 2}
   heartBeatClip: {fileID: 8300000, guid: f2414c8f826a3f646a804d6399d1add5, type: 3}
+  mixer: {fileID: 0}
+  maxDistance: 0
+  heartBeatLowPass: 0.5
 --- !u!82 &5913259903299674421
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5478,23 +5495,10 @@ Rigidbody:
   m_Drag: Infinity
   m_AngularDrag: Infinity
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b2268f9c7df8764aa2e92dbf55b5ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 0

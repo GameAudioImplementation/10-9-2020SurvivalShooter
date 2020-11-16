@@ -16,7 +16,7 @@ filters = {
 	asset = true
 }
 scopes = {
-	"last_search.AB59B443" = "dupli"
+	"last_search.AB59B443" = "physics deb"
 }
 providers = {
 	asset = {

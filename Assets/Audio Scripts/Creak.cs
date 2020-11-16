@@ -19,7 +19,6 @@ public class Creak : MonoBehaviour
         if (!waiting)
         {
             int randomclip = Random.Range(0, audioClips.Count);
-            Debug.Log("OnTriggerEnter" + Time.time);
             float randomVol = Random.Range(0.4f, 0.7f);
             source.volume = randomVol;
 

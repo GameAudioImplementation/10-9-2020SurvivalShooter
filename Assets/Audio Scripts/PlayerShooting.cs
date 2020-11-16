@@ -77,14 +77,12 @@ namespace CompleteProject
             gunLight.enabled = false;
         }
 
-
+         int shot = 0;
         void Shoot ()
         {
-            // Reset the timer.
+            shot++;
             //int shot = 0;
             timer = 0f;
-
-            // Play the gun shot audioclip.
             int randomclip = Random.Range(0, shotClips.Count);
             Debug.Log("OnTriggerEnter" + Time.time);
             float randomVol = Random.Range(0.3f, 0.8f);
@@ -92,32 +90,39 @@ namespace CompleteProject
 
             float randomPitch = Random.Range(1, 3);
             aSource.pitch = randomPitch;
+            SingleShot();
+            if(shot % 3 == 0) {
+                for(int shot = 0; shot <= 2; shot++)
+                {
+                    Invoke("Shell", shot*0.2f);
+                }
+           }
 
-           /* if(shot < 4){ //how to check specific clip?
-                shot++;
+            /*if(shot < 4){ //how to check specific clip?
+               
                 aSource.PlayOneShot(shotClips[randomclip]);
-                if(shot == 3 && !aSource.isPlaying){
-                    aSource.PlayOneShot(shellClips[randomclip]);
-                    aSource.clip = shellClips[randomclip];
-                    Invoke("PauseSound", 3f); //need to pause animation
+                
+                if(shot == 3){
+                    for(int shot = 0; shot <= 2; shot++)
+                        {
+                            aSource.PlayOneShot(shellClips[randomclip]);
+                            aSource.clip = shellClips[randomclip];
+                   
+                        }        
+                       Invoke("PauseSound", 3f);            
+                     //need to pause animation
                     //aSource.PlayDelayed(1f);
                 }
-            }*/
-
-            for(int shot = 0; shot <= 2; shot++)
+            } */
+        
+           /* for(int shot = 0; shot <= 2; shot++)
             {
                 Invoke("SingleShot", shot);
             }
-            Invoke("PauseSound", 3f);
+            Invoke("PauseSound", 3f);*/
             // ignore mouse press until shells finished playing
 
-            // Enable the lights.
-            gunLight.enabled = true;
-			faceLight.enabled = true;
-
-            // Stop the particles from playing if they were, then start the particles.
-            gunParticles.Stop ();
-            gunParticles.Play ();
+           
 
             // Enable the line renderer and set it's first position to be the end of the gun.
             gunLine.enabled = true;
@@ -150,22 +155,32 @@ namespace CompleteProject
                 gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
             }
         }
-         void PauseSound(){
-            gunParticles.Stop();
-            int randomclip = Random.Range(0, shotClips.Count);
-            aSource.PlayOneShot(shellClips[randomclip]);
-        }
-        void SingleShot(){
-            gunParticles.Stop();
-            aSource.PlayOneShot(shotClips[0]);
-            gunParticles.Play();
-        }
-    }
+        
+         /* Stop the particles from playing if they were, then start the particles.
+         
+            gunParticles.Stop ();
+            gunParticles.Play (); */
+  
       /*  private IEnumerator PauseSound()
         {
             float randTime = Random.Range(0f, 1f);
             yield return new WaitForSeconds(randTime);
             waiting = false;
         }*/
-       
+        void Shell(){
+            gunParticles.Stop();
+            int randomclip = Random.Range(0, shotClips.Count);
+            aSource.PlayOneShot(shellClips[randomclip]);
+            }
+        /* void Shell(){
+            aSource.PlayOneShot(shellClips[0]);
+        } */
+        void SingleShot(){
+            gunLight.enabled = true;  // Enable the lights.
+			faceLight.enabled = true;
+            gunParticles.Stop();
+            aSource.PlayOneShot(shotClips[0]);
+            gunParticles.Play();
+        }
+    }
 }
