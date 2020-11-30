@@ -16,7 +16,7 @@ filters = {
 	asset = true
 }
 scopes = {
-	"last_search.AB59B443" = "physics deb"
+	"last_search.AB59B443" = "shadergr"
 }
 providers = {
 	asset = {

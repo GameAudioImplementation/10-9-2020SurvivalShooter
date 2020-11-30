@@ -19,6 +19,10 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 14483c187061e4b0bb3412b5a62fc9e8
     name: musicVol
+  - guid: 8e7ba76ffd4034a9cb14f068c6e0afcd
+    name: Speed
+  - guid: 1c56f17116b57514285387cc0b25a7d5
+    name: pitch
   - guid: 6dd5146e823c8473bbfd0a3277660eb6
     name: sfxVol
   m_AudioMixerGroupViews:
@@ -44,6 +48,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400000}
+  - {fileID: 479558681958227467}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -203,11 +208,13 @@ AudioMixerSnapshotController:
     e9b9a6501310a426b9d138b9f0f95c00: -32.80002
     413eaf50284764685926980588d77862: 0.1
     583f55a09409248f19826c9b9cfae5a5: -80
+    1c56f17116b57514285387cc0b25a7d5: 0.5
     15e14d927bf154215a826803e367ad24: 0.1
+    14a73453794d4704cbe77b35b7d13339: 4096
     d5cce5f437a6e4e70ba5eaae1b05a461: 0
     64090e3683acf4e56a6c6c075c3f71d9: -37.3
     dcb8853767f3c4ba99bc4ada067655c1: 0.1
-    14483c187061e4b0bb3412b5a62fc9e8: -0.02577689
+    14483c187061e4b0bb3412b5a62fc9e8: -0.025776893
     4aa8bd7817000453e95180932afbdae1: -0.1668526
     fc2819a983e724a3891118a73e960a20: -5.5
     1ce4427af64664e85968bb5418ca3654: 50
@@ -217,4 +224,27 @@ AudioMixerSnapshotController:
     bc71986e499b946c0848dfbb1273975c: 0.9999936
     25e48a8ed0b294d0fac8a2ff608fffb4: 0.1
     7e26e30f7425f4c63a5342d3632612a8: 15.5
+    8e7ba76ffd4034a9cb14f068c6e0afcd: 2
   m_TransitionOverrides: {}
+--- !u!244 &479558681958227467
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: ad1823ea2d5931448bc00796509bea56
+  m_EffectName: Pitch Shifter
+  m_MixLevel: 9639474f69f326b4786f32516a25cfa1
+  m_Parameters:
+  - m_ParameterName: Pitch
+    m_GUID: 1c56f17116b57514285387cc0b25a7d5
+  - m_ParameterName: FFT size
+    m_GUID: 14a73453794d4704cbe77b35b7d13339
+  - m_ParameterName: Overlap
+    m_GUID: 5e9cb0c75161b2041b5407b78cff5008
+  - m_ParameterName: Max channels
+    m_GUID: 2abc87c7ab83e374aae6b5556d172d20
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
